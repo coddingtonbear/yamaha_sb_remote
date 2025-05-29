@@ -11,10 +11,8 @@ from homeassistant.components.media_player import (
 )
 from homeassistant.const import CONF_NAME, STATE_OFF, STATE_ON
 from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
-from homeassistant.util import Throttle
 
 from .ble_connect import BleData
-from . import MIN_POLLING_INTERVAL
 
 DEVICE_SOURCE_TYPE = ["Bluetooth", "TV", "Optical", "Analog"]
 
@@ -184,7 +182,6 @@ class YamahaMediaPlayer(MediaPlayerEntity):
         ble_connect = BleData(self, self.hass, self._macAdress)
         await ble_connect.callDevice(["powerOn"])
 
-    @Throttle(MIN_POLLING_INTERVAL)
     async def async_update(self):
         """Update the media player State."""
         _LOGGER.debug("Call update on %s", self._name)

@@ -6,10 +6,8 @@ from custom_components.yamaha_sb_remote import (
 from homeassistant.components.switch import SwitchEntity
 from homeassistant.const import CONF_NAME, STATE_OFF, STATE_ON
 from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
-from homeassistant.util import Throttle
 
 from .ble_connect import BleData
-from . import MIN_POLLING_INTERVAL
 
 SWITCH_LIST = ["clear_voice", "bass_ext"]
 
@@ -42,7 +40,6 @@ class SoundbarSwitch(SwitchEntity):
         """Run when entity about to be added."""
         await super().async_added_to_hass()
 
-    @Throttle(MIN_POLLING_INTERVAL)
     async def async_update(self):
         """Update the switch State."""
         if self._status == "unint" or self._pollingAuto is True:

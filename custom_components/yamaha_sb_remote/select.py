@@ -6,10 +6,8 @@ from custom_components.yamaha_sb_remote import (
 from homeassistant.components.select import SelectEntity
 from homeassistant.const import CONF_NAME
 from homeassistant.helpers.device_registry import DeviceEntryType, DeviceInfo
-from homeassistant.util import Throttle
 
 from .ble_connect import BleData
-from . import MIN_POLLING_INTERVAL
 
 
 async def async_setup_entry(hass, config, async_add_entities):
@@ -66,7 +64,6 @@ class SoundbarLed(SelectEntity):
             model=SOUNDBAR_DOMAIN,
         )
 
-    @Throttle(MIN_POLLING_INTERVAL)
     async def async_update(self):
         """Update the Number State."""
         if self._status == "unint" or self._pollingAuto is True:
