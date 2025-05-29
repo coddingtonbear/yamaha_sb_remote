@@ -33,3 +33,6 @@ async def async_setup_entry(hass, config):
 
     await hass.config_entries.async_forward_entry_setups(config, SUPPORTED_DOMAINS)
     return True
+
+
+MIN_POLLING_INTERVAL = timedelta(seconds=30)
