@@ -21,7 +21,7 @@ DOMAIN = "yamaha_sb_remote"
 
 DEVICE_MANUFACTURER = "YAMAHA"
 
-SCAN_INTERVAL = timedelta(seconds=15)
+SCAN_INTERVAL = timedelta(seconds=30)
 
 # DEFAULTS
 DEFAULT_NAME = "Yamaha SR-C20A"
