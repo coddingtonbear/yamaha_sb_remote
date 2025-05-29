@@ -35,4 +35,4 @@ async def async_setup_entry(hass, config):
     return True
 
 
-MIN_POLLING_INTERVAL = timedelta(seconds=20)
+MIN_POLLING_INTERVAL = timedelta(seconds=30)
